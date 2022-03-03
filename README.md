@@ -1,6 +1,6 @@
 # CLP-Blackjack
 
-##Introduction
+## Introduction
 
 My project was initially to challenge the [Blackjack Cheat Sheet](https://th.bing.com/th/id/R.939215ae5b7b73e78a613e8d7d8f8855?rik=9V0Yf%2b33050XtQ&pid=ImgRaw&r=0) that you freely see given out on the Internet.
 
@@ -35,5 +35,32 @@ The dataset is laid out as follows:
 I chose just the columns in green.
 The first two cards would be the player's hand, and the third card would decide if the player "hit" or "stayed."
 The dealcard1 is the dealer's face-up card. The player is not privy to the dealer's second card until a hit/stay decision is made, so I have no use for the dealcard2 column.
-I chose the ply2cardsum after I realized a built a column to hold the same value
+I chose the ply2cardsum column only after I realized I built a column to hold the same value.
 
+A few things I immediately noticed:
+- An Ace is considered 1 or 11. Although fluid during the player's session, the end value is recorded in the row.
+- No data suggests a split occurs. Therefore I would be unable to provide any reasonable advice for player pairs (8/8, A/A, etc).
+
+I assumed the player's actions would be random. I initially built a box for each {My Hand / Dealer Face-Up} scenario
+```
+For Dealer showing 7, Player has 15 (no ace)
+
+               | Wins/Ties | Losses | Instances
+-----------------------------------------------
+Player Hits    |         0 |      0 |     0
+Player Stays   |      1707 |   3155 |  4862        
+```
+At this point, I realized the players are following a script for "15 vs 7"
+In the real-world, I always have to assume the dealer is hiding a 10.
+I would review the other cards on the table. If most are high, I would hope for a small card.
+Heck, I might even hit just to "fight" for it, because staying only works 35% of the time.
+Although this scenario is not quantifiable in data, I would have liked to see a "Hit vs Stay" argument.
+
+With this, I had to reconsider the entire project. 
+There is no way to recreate the Blackjack Cheat Sheet. The actions are fixed.
+
+## Project
+This project shows a visual confidence of prescribed actions ("Hit" or "Stay"), based solely on the player's initial hand of Blackjack.
+The data comes from the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle.com/mojocolors/900000-hands-of-blackjack-results)" from [Kaggle](https://www.kaggle.com).
+
+pip install -r requirements.txt

@@ -1,6 +1,7 @@
 from turtle import back, st
 import pandas as pd
 import numpy as np
+import os
 
 import colorama
 from colorama import init, Fore, Back, Style
@@ -21,9 +22,10 @@ def GetInputData():
     # Project Requirement: Category 2: Read data from an external file
     # --------------------------------------------------------------------------
 
-    filepath = r"C:\CodeLouisville\repos\Python\blackjack\blkjckhands.csv"
+    filepath = LocateInputFile()
     df_infile = pd.read_csv(filepath, header=0, sep=',', usecols=["card1", "card2", "ply2cardsum", "card3", "dealcard1", "winloss"])
 
+    print ("Loading data...")
 
     #Reorder the columns so I can read the data in a logical progression
     df_infile = df_infile[["card1", "card2", "ply2cardsum", "card3", "dealcard1", "winloss"]]
@@ -86,7 +88,22 @@ def GetInputData():
 
     del df_infile["Dealcard_TrueValue"]
 
+    # Treat a Push as a Win, because no money is lost by player
+    #df_infile["winloss"] = np.where(
+    #                                    df_infile['winloss'] == "Push"
+    #                                    , "Win"
+    #                                    , df_infile['winloss'])
+
     return df_infile
+
+
+def LocateInputFile():
+    print ("Looking for data...")
+    
+    filepath = os.getcwd() + r"\blkjckhands.csv"
+    while os.path.exists(filepath) == False:
+        filepath = input("Input file not found. Where is it?\n")
+    return filepath
 
 def GetUniqueCards():
     data = { 'card': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'A'] }
@@ -146,10 +163,6 @@ def ColorText(text, confidence):
 
     print_with_color(text, color, brightness)
 
-def SampleSomeRows(dataframe):
-    result = dataframe.head(10)
-    print(result)
-
 def PrintLegend():
     print("")
     print(" " * 45, end="")
@@ -169,7 +182,6 @@ def PrintLegend():
     print("")
 
 def main():
-    print ("Loading data...")
 
     df_infile = GetInputData()
 
@@ -249,6 +261,9 @@ def main():
     #print(df_cardsum_results)
     #print(df_aceCombos_results)
 
+    # ---------------------------------------------------------------------------
+    # Project Requirement: Stretch: Use pandas, ingest 2 pieces of data, display to a new graph
+    # --------------------------------------------------------------------------
     df_temp = pd.concat([df_cardsum_results, df_aceCombos_results], axis=0)
     df_finaldata = df_temp.rename(columns={'Display': 'My Hand'})
     #print(df_finaldata)
