@@ -15,22 +15,22 @@ Kaggle's simple description of the dataset was this:
 The dataset is laid out as follows:
 - Index: Repeatable numerics of 0 to 5
 - PlayerNo: Identifies each player. There are 6 playing each round.
-- ![#157500](https://placehold.it/20/157500?text=+)card1: First card dealt to the player (range 1 - 11)
-- ![#157500](https://placehold.it/20/157500?text=+)card2: Second card dealt to the player (range 1 - 11)
-- ![#157500](https://placehold.it/20/157500?text=+)card3: Third card dealt to player, if needed (range 0 -11)
+- (https://via.placeholder.com/10.png/0f0/fff)card1: First card dealt to the player (range 1 - 11)
+- (https://via.placeholder.com/10.png/0f0/fff)card2: Second card dealt to the player (range 1 - 11)
+- (https://via.placeholder.com/10.png/0f0/fff)card3: Third card dealt to player, if needed (range 0 -11)
 - card4, card5: subsequent cards dealt to player, if needed (range 0 -11)
 - sumofcards: player's sum at end of round
-- ![#157500](https://placehold.it/20/157500?text=+)dealcard1: First card dealt to the dealer (range 1 - 11)
+- ![#157500](https://via.placeholder.com/10.png/0f0/fff)dealcard1: First card dealt to the dealer (range 1 - 11)
 - dealcard2: Second card dealt to the dealer (range 1 - 11)
 - dealcard3, dealcard4, dealcard5: subsequent cards dealt to dealer, if needed (range 0 -11)
 - sumofdeal: dealer's sum at end of round
 - blkjck: indicates if player initially dealt a Blackjack combo (10 + A)
-- ![#157500](https://placehold.it/20/157500?text=+)winloss: Indicates if player won or lost { Win, Loss, Push }
+- ![#157500](https://via.placeholder.com/10.png/0f0/fff)winloss: Indicates if player won or lost { Win, Loss, Push }
 - plybustbeat: If player loses, was he beat or did he bust
 - dlbustbeat: If dealer loses, was he beat or did he bust
 - plwinamt: Total amount won by player each round
 - dlwinamt: Total amount won by Dealer each round
-- [#157500](https://placehold.it/20/157500?text=+)ply2cardsum: Sum of the first 2 cards dealt to player
+- [#157500](https://via.placeholder.com/10.png/0f0/fffply2cardsum: Sum of the first 2 cards dealt to player
 
 I chose just the columns in green.
 The first two cards would be the player's hand, and the third card would decide if the player "hit" or "stayed."
