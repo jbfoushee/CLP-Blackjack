@@ -77,17 +77,17 @@ After activating the venv environment, please install the libraries in the requi
 
 ## Requirements satisfied
 
-# Category 1: Python Programming Basics:
+### Category 1: Python Programming Basics:
 Create and call at least 3 functions or methods, at least one of which must return a value that is used somewhere else in your code. To clarify, at least one function should be called in your code, that function should calculate, retrieve, or otherwise set the value of a variable or data structure, return a value to where it was called, and use that value somewhere else in your code
 
-# Category 2: Utilize External Data
+### Category 2: Utilize External Data
 Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.
 
-# Category 3: Data Display
+### Category 3: Data Display
 Display data in tabular form
 
-# Category 4: Best Practices
+### Category 4: Best Practices
 The program should utilize a virtual environment and document library dependencies in a requirements.txt file.
 
-# Stretch Features
+### Stretch Features
 Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
