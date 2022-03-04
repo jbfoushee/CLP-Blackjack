@@ -9,8 +9,15 @@ I retrieved the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle
 
 However, this became more of a discovery of the data I downloaded because expectations were not met.
 
+## Data Discovery
+
 Kaggle's simple description of the dataset was this:
 "The data was generated from the code used to analyse a million hands of Blackjack. The cards are distributed as seen in a casino. Idea is find out patterns and find out a strategy to optimize wins. The different columns are cards distributed to players and dealer and their sum of cards and how that round was won, either by player or by the dealer."
+
+There was no further documentation on how the data was gathered.
+- How often was the shoe (set of cards) swapped out?
+- How many decks of cards were involved?
+- What are the rules for the players to follow?
 
 The dataset is laid out as follows:
 - Index: Repeatable numerics of 0 to 5
@@ -47,8 +54,8 @@ For Dealer showing 7, Player has 15 (no ace)
 
                | Wins/Ties | Losses | Instances
 -----------------------------------------------
-Player Hits    |         0 |      0 |     0
-Player Stays   |      1707 |   3155 |  4862        
+Player Hits    |         0 |      0 |      0
+Player Stays   |      1707 |   3155 |   4862        
 ```
 At this point, I realized the players are following a script for "15 vs 7"
 In the real-world, I always have to assume the dealer is hiding a 10.
@@ -60,9 +67,27 @@ With this, I had to reconsider the entire project.
 There is no way to recreate the Blackjack Cheat Sheet. The actions are fixed.
 
 ## Project
-This project shows a visual confidence of prescribed actions ("Hit" or "Stay"), based solely on the player's initial hand of Blackjack.
+This project shows a visual confidence of prescribed actions ("Hit" or "Stay"), based solely on the player's initial two cards.
 The data comes from the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle.com/mojocolors/900000-hands-of-blackjack-results)" from [Kaggle](https://www.kaggle.com).
 
-This was built in Python version 3.10 .
+This was built in Python version 3.10 in a venv environment.
+After activating the venv environment, please install the libraries in the requirements.txt
+```pip install -r requirements.txt
+```
 
-pip install -r requirements.txt
+## Requirements satisfied
+
+# Category 1: Python Programming Basics:
+Create and call at least 3 functions or methods, at least one of which must return a value that is used somewhere else in your code. To clarify, at least one function should be called in your code, that function should calculate, retrieve, or otherwise set the value of a variable or data structure, return a value to where it was called, and use that value somewhere else in your code
+
+# Category 2: Utilize External Data
+Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.
+
+# Category 3: Data Display
+Display data in tabular form
+
+# Category 4: Best Practices
+The program should utilize a virtual environment and document library dependencies in a requirements.txt file.
+
+# Stretch Features
+Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.

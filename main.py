@@ -285,7 +285,7 @@ def main():
             ColorText(row[columnname][0], row[columnname][1])
             print("\t", end="")
         ColorText(row["A"][0], row["A"][1])
-        print_with_color("", Fore.BLACK + Back.BLACK, Style.NORMAL) # reset trailing backcolors? (Windows only)
+        print_with_color("", Fore.RESET + Back.RESET, Style.RESET_ALL) # reset trailing backcolors? (Windows only)
         print("")
 
     PrintLegend()
