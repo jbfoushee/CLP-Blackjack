@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import os
 
-import colorama
 from colorama import init, Fore, Back, Style
 init()
 # all available foreground colors
@@ -89,17 +88,17 @@ def GetInputData():
     del df_infile["Dealcard_TrueValue"]
 
     # Treat a Push as a Win, because no money is lost by player
-    #df_infile["winloss"] = np.where(
-    #                                    df_infile['winloss'] == "Push"
-    #                                    , "Win"
-    #                                    , df_infile['winloss'])
+    df_infile["winloss"] = np.where(
+                                        df_infile['winloss'] == "Push"
+                                        , "Win"
+                                        , df_infile['winloss'])
 
     return df_infile
 
 
 def LocateInputFile():
     print ("Looking for data...")
-    
+
     filepath = os.getcwd() + r"\blkjckhands.csv"
     while os.path.exists(filepath) == False:
         filepath = input("Input file not found. Where is it?\n")
@@ -151,7 +150,7 @@ def ColorText(text, confidence):
         brightness = Style.BRIGHT                  
     elif ((confidence > 48.0) & (confidence < 52.0)):
         color = Fore.YELLOW
-        brightness = Style.BRIGHT
+        brightness = Style.NORMAL
     elif confidence > 70.0:
         color = Fore.BLACK + Back.GREEN
         brightness = Style.NORMAL         
@@ -280,13 +279,13 @@ def main():
     print("")
 
     for index, row in df_finaldata.iterrows():
-        print(str(row["My Hand"]) + "\t\t", end = "")
+        print(str(row["My Hand"]) + "\t\t", end = "") # no color here
 
         for columnname in [2,3,4,5,6,7,8,9,10]:
             ColorText(row[columnname][0], row[columnname][1])
             print("\t", end="")
         ColorText(row["A"][0], row["A"][1])
-        print_with_color(" ", Fore.BLACK + Back.BLACK, Style.NORMAL)
+        print_with_color("", Fore.BLACK + Back.BLACK, Style.NORMAL) # reset trailing backcolors? (Windows only)
         print("")
 
     PrintLegend()

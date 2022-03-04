@@ -63,4 +63,6 @@ There is no way to recreate the Blackjack Cheat Sheet. The actions are fixed.
 This project shows a visual confidence of prescribed actions ("Hit" or "Stay"), based solely on the player's initial hand of Blackjack.
 The data comes from the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle.com/mojocolors/900000-hands-of-blackjack-results)" from [Kaggle](https://www.kaggle.com).
 
+This was built in Python version 3.10 .
+
 pip install -r requirements.txt
