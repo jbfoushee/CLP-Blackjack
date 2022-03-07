@@ -2,6 +2,7 @@ from turtle import back, st
 import pandas as pd
 import numpy as np
 import os
+import platform
 
 from colorama import init, Fore, Back, Style
 init()
@@ -11,6 +12,12 @@ FORES = [ Fore.BLACK, Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA
 BACKS = [ Back.BLACK, Back.RED, Back.GREEN, Back.YELLOW, Back.BLUE, Back.MAGENTA, Back.CYAN, Back.WHITE ]
 # brightness values
 BRIGHTNESS = [ Style.DIM, Style.NORMAL, Style.BRIGHT ]
+
+class Color:
+    def __init__(self, fore, back, brightness):
+        self.fore = fore
+        self.back = back
+        self.brightness = brightness
 
 # ---------------------------------------------------------------------------
 # Project Requirement: Category 1: Create and call at least 3 functions/methods; one returning an object
@@ -144,16 +151,22 @@ def ColorText(text, confidence):
         brightness = Style.DIM
     elif confidence < 40.0:
         color = Fore.RED
-        brightness = Style.DIM
+        if platform.system() == "Windows":
+            brightness = Style.DIM      #show as crimson in Windows
+        else:
+            brightness = Style.BRIGHT   #show as bright-red in non-Windows
     elif confidence < 48.0:
         color = Fore.RED
-        brightness = Style.BRIGHT                  
+        if platform.system() == "Windows":
+            brightness = Style.BRIGHT   #show as pink in Windows
+        else:
+            brightness = Style.DIM      #show as crimson in non-Windows
     elif ((confidence > 48.0) & (confidence < 52.0)):
         color = Fore.YELLOW
         brightness = Style.NORMAL
     elif confidence > 70.0:
         color = Fore.BLACK + Back.GREEN
-        brightness = Style.NORMAL         
+        brightness = Style.NORMAL
     elif confidence > 52.0:
         color = Fore.GREEN
         brightness = Style.NORMAL          
@@ -173,12 +186,27 @@ def PrintLegend():
     print(" ", end="")
     print_with_color("Neutral", Fore.YELLOW, Style.NORMAL)
     print(" ", end="")
-    print_with_color("Bad", Fore.RED, Style.BRIGHT)
+
+    brightness = Style.BRIGHT
+    if platform.system() == "Windows":
+        brightness = Style.BRIGHT   #show as pink in Windows
+    else:
+        brightness = Style.DIM      #show as crimson in non-Windows
+
+    print_with_color("Bad", Fore.RED, brightness)
     print(" ", end="")
-    print_with_color("Worse", Fore.RED)    
+
+    if platform.system() == "Windows":
+        brightness = Style.DIM      #show as crimson in Windows
+    else:
+        brightness = Style.BRIGHT   #show as bright-red in non-Windows
+
+    print_with_color("Worse", Fore.RED, brightness)    
     print(" ", end="")
+    
     print_with_color("Worst", Fore.BLACK + Back.RED, Style.NORMAL)
     print("")
+
 
 def main():
 

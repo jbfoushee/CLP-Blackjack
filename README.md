@@ -2,16 +2,16 @@
 
 ## Introduction
 
-My project was initially to challenge the [Blackjack Cheat Sheet](https://th.bing.com/th/id/R.939215ae5b7b73e78a613e8d7d8f8855?rik=9V0Yf%2b33050XtQ&pid=ImgRaw&r=0) that you freely see given out on the Internet.
+My project was initially to challenge the [Blackjack Cheat Sheet](https://th.bing.com/th/id/R.939215ae5b7b73e78a613e8d7d8f8855?rik=9V0Yf%2b33050XtQ&pid=ImgRaw&r=0) that you see freely-distributed on the Internet.
 
 
 I retrieved the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle.com/mojocolors/900000-hands-of-blackjack-results)" from [Kaggle](https://www.kaggle.com).
 
-However, this became more of a discovery of the data I downloaded because expectations were not met.
+However, this became more of a discovery of the data I downloaded, because expectations were not met.
 
 ## Data Discovery
 
-Kaggle's simple description of the dataset was this:
+The author's simple description of the dataset was this:
 "The data was generated from the code used to analyse a million hands of Blackjack. The cards are distributed as seen in a casino. Idea is find out patterns and find out a strategy to optimize wins. The different columns are cards distributed to players and dealer and their sum of cards and how that round was won, either by player or by the dealer."
 
 There was no further documentation on how the data was gathered.
@@ -72,7 +72,8 @@ The data comes from the dataset "[900,000 Hands of BlackJack Results](https://ww
 
 This was built in Python version 3.10 in a venv environment.
 After activating the venv environment, please install the libraries in the requirements.txt
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 
 ## Requirements satisfied
@@ -91,3 +92,9 @@ The program should utilize a virtual environment and document library dependenci
 
 ### Stretch Features
 Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
+
+## Reflection
+This was a great project to start with Python and data analysis.
+
+Having real-world knowledge, I was extremely disappointed in the data gathering, and the rules of playing.
+The players' actions were solely based on their initially-dealt cards devoid of any influence from the dealer. This is entirely reckless.
