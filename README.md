@@ -11,11 +11,11 @@ However, this became more of a discovery of the data I downloaded, because expec
 
 ## Data Discovery
 
-The author's simple description of the dataset was this:
+The author's entire description of the dataset was this:
 "The data was generated from the code used to analyse a million hands of Blackjack. The cards are distributed as seen in a casino. Idea is find out patterns and find out a strategy to optimize wins. The different columns are cards distributed to players and dealer and their sum of cards and how that round was won, either by player or by the dealer."
 
 There was no further documentation on how the data was gathered.
-- How often was the shoe (set of cards) swapped out?
+- How often was the shoe (the totality of cards) swapped out?
 - How many decks of cards were involved?
 - What are the rules for the players to follow?
 
@@ -45,23 +45,24 @@ The dealcard1 is the dealer's face-up card. The player is not privy to the deale
 I chose the ply2cardsum column only after I realized I built a column to hold the same value.
 
 A few things I immediately noticed:
-- An Ace is considered 1 or 11. Although fluid during the player's session, the end value is recorded in the row.
+- An Ace is considered 1 or 11. Although fluid during the player's physical session, the end value is recorded in the row.
 - No data suggests a split occurs. Therefore I would be unable to provide any reasonable advice for player pairs (8/8, A/A, etc).
 
 I assumed the player's actions would be random. I initially built a box for each {My Hand / Dealer Face-Up} scenario
 ```
-For Dealer showing 7, Player has 15 (no ace)
+For Dealer showing "7," Player has "15 (no ace)"
 
                | Wins/Ties | Losses | Instances
 -----------------------------------------------
 Player Hits    |         0 |      0 |      0
 Player Stays   |      1707 |   3155 |   4862        
 ```
-At this point, I realized the players are following a script for "15 vs 7"
+At this point, I realized the players are following a script for "15 vs 7," because no data exists for a player hitting.
+
 In the real-world, I always have to assume the dealer is hiding a 10.
 I would review the other cards on the table. If most are high, I would hope for a small card.
-Heck, I might even hit just to "fight" for it, because staying only works 35% of the time.
-Although this scenario is not quantifiable in data, I would have liked to see a "Hit vs Stay" argument.
+Heck, I might even hit just to "fight" for it, because -- according to their data -- staying only works 35% of the time.
+Although not quantifiable with the data provided, I would have liked to see a "Hit vs Stay" argument.
 
 With this, I had to reconsider the entire project. 
 There is no way to recreate the Blackjack Cheat Sheet. The actions are fixed.
@@ -75,6 +76,18 @@ After activating the venv environment, please install the libraries in the requi
 ```
 pip install -r requirements.txt
 ```
+
+For each permutation, a box was built:
+```
+For Dealer showing "7," Player has "15 (no ace)"
+
+Players' Action  | Wins/Ties | Instances | Win as %
+------------------------------------------------------
+Player Stays     |      1707 |      4862 |   35.1%
+```
+
+and the "Win as %" is displayed as a color-gradient of how confident the action is.
+In other words, how likely will the prescribed action do its job?
 
 ## Requirements satisfied
 
@@ -98,3 +111,4 @@ This was a great project to start with Python and data analysis.
 
 Having real-world knowledge, I was extremely disappointed in the data gathering, and the rules of playing.
 The players' actions were solely based on their initially-dealt cards devoid of any influence from the dealer. This is entirely reckless.
+I would have appreciated more clarity in the dataset before having invested so much time into researching it.
