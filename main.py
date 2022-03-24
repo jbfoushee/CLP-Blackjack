@@ -106,7 +106,13 @@ def GetInputData():
 def LocateInputFile():
     print ("Looking for data...")
 
-    filepath = os.getcwd() + r"\blkjckhands.csv"
+    filepath = os.getcwd() 
+    if platform.system() == "Windows":
+        filepath += "\\"
+    else:
+        filepath += "/"
+    filepath += "blkjckhands.csv"
+
     while os.path.exists(filepath) == False:
         filepath = input("Input file not found. Where is it?\n")
     return filepath

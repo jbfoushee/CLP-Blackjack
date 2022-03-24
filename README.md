@@ -71,10 +71,19 @@ There is no way to recreate the Blackjack Cheat Sheet. The actions are fixed.
 This project shows a visual confidence of prescribed actions ("Hit" or "Stay"), based solely on the player's initial two cards.
 The data comes from the dataset "[900,000 Hands of BlackJack Results](https://www.kaggle.com/mojocolors/900000-hands-of-blackjack-results)" from [Kaggle](https://www.kaggle.com).
 
-This was built in Python version 3.10 in a venv environment.
-After activating the venv environment, please install the libraries in the requirements.txt
+This project requires Python version 3.10 .
+A venv environment is required.
+After activating the venv environment, please install the libraries in the requirements.txt .
 ```
 pip install -r requirements.txt
+```
+Once installed, clone the repository with 
+```
+git clone https://github.com/jbfoushee/CLP-Blackjack.git
+```
+Navigate to the cloned directory and run
+```
+python main.py
 ```
 
 For each permutation, a box was built:
