@@ -73,13 +73,14 @@ The data comes from the dataset "[900,000 Hands of BlackJack Results](https://ww
 
 This project requires Python version 3.10 .
 A venv environment is required.
+
+Clone the repository with 
+```
+git clone https://github.com/jbfoushee/CLP-Blackjack.git
+```
 After activating the venv environment, please install the libraries in the requirements.txt .
 ```
 pip install -r requirements.txt
-```
-Once installed, clone the repository with 
-```
-git clone https://github.com/jbfoushee/CLP-Blackjack.git
 ```
 Navigate to the cloned directory and run
 ```
